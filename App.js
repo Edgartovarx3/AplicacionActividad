@@ -103,7 +103,7 @@ function Ejercicio1(){
           
         }}
         disabled={activo}
-        title={!activo ? "Editar" :"Editar"}
+        title="Editar"
         
         
 
