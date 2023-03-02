@@ -83,14 +83,20 @@ function Ejercicio1(){
         
         
         
-        
-      
         <Button onPress={()=>{
           setActivo(false);
           
         }}
         disabled={!activo}
-        title={activo ? "Guardar materias" :"Materias guardadas"}
+        title={activo ? "Cargar Materias" :"Materias Cargadas"}
+      />
+      
+        <Button onPress={()=>{
+          setActivo(true);
+          
+        }}
+        disabled={activo}
+        title={!activo ? "Editar" :"Editar"}
         
         
 
