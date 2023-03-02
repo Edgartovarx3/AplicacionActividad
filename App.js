@@ -55,6 +55,8 @@ function Ejercicio1(){
   const [materia2,setMateria2]=useState("Inscribirse a la materia");
   const [materia3,setMateria3]=useState("Inscribirse a la materia");
   const [activo,setActivo]=useState(true);
+  const [isEditable, setIsEditable] = useState(true);
+  
 
   const Materias =(props)=>{
     return(
@@ -69,30 +71,35 @@ function Ejercicio1(){
         style={styles.cajaTexto}
         onChangeText={(newText)=>setMateria(newText)}
         defaultValue={materia1}
+        editable={isEditable}
         />
           <TextInput
         style={styles.cajaTexto}
         onChangeText={(newText)=>setMateria2(newText)}
         defaultValue={materia2}
+        editable={isEditable}
         />
           <TextInput
         style={styles.cajaTexto}
         onChangeText={(newText)=>setMateria3(newText)}
         defaultValue={materia3}
+        editable={isEditable}
         />
         
         
         
         <Button onPress={()=>{
           setActivo(false);
+          setIsEditable(false);
           
         }}
         disabled={!activo}
-        title={activo ? "Cargar Materias" :"Materias Cargadas"}
+        title={activo ? "Cargar Materias" :"Materias Cargadas" }
       />
       
         <Button onPress={()=>{
           setActivo(true);
+          setIsEditable(true);
           
         }}
         disabled={activo}
