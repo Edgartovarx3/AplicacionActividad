@@ -66,38 +66,43 @@ function Ejercicio1(){
   return (
     <View style={styles.container}>
  
-        <Text >MATERIAS</Text>
+        <Text style={styles.Titulos} >MATERIAS</Text>
         <TextInput
         style={styles.cajaTexto}
         onChangeText={(newText)=>setMateria(newText)}
-        defaultValue={materia1}
+        placeholder={materia1}
         editable={isEditable}
         />
           <TextInput
         style={styles.cajaTexto}
         onChangeText={(newText)=>setMateria2(newText)}
-        defaultValue={materia2}
+        placeholder={materia2}
         editable={isEditable}
         />
           <TextInput
         style={styles.cajaTexto}
         onChangeText={(newText)=>setMateria3(newText)}
-        defaultValue={materia3}
+        placeholder={materia3}
         editable={isEditable}
         />
         
         
         
-        <Button onPress={()=>{
+        <Button 
+          style={styles.Botones}
+          onPress={()=>{
           setActivo(false);
           setIsEditable(false);
           
         }}
         disabled={!activo}
         title={activo ? "Cargar Materias" :"Materias Cargadas" }
+       
       />
       
-        <Button onPress={()=>{
+        <Button  
+          style={styles.Botones} 
+          onPress={()=>{
           setActivo(true);
           setIsEditable(true);
           
@@ -108,17 +113,19 @@ function Ejercicio1(){
         
 
         
-
+     
       />
      
-     {!activo ? <Text> {"Materias Cargadas: \n"+materia1+" \n"+materia2+" \n"+ materia3} </Text>:"" }
-      
+     {!activo ? <Text style={styles.Titulos}> Materias Cargadas: {<Text style={styles.Materias}> {"\n"+materia1+" \n"+materia2+" \n"+ materia3}</Text>} </Text>:"" }
+     
        
       
       <StatusBar style="auto" />
     </View>
   );
 }
+
+<Text style={{ fontFamily: 'Yatra-One', fontSize: 27 }}>Yatra-One</Text>
 
 const styles = StyleSheet.create({
   container: {
@@ -132,5 +139,35 @@ const styles = StyleSheet.create({
     borderColor:"gray",
     borderWidth:1,
     minWidth:200,
+    letterSpacing:2.50,
+    fontSize:14,
+    borderRadius:10,
+    padding:10,
+    margin:10
+    
+
   },
+  Botones:{
+    fontSize:14,
+    borderRadius:10,
+    padding:10,
+    margin:10
+
+  },
+  Titulos:{
+    fontFamily:'Yatra-One',
+    fontSize: 27,
+   fontWeight:'bold',
+   height:80
+
+  },
+  Materias:{
+    fontFamily:'apitalize',
+    fontSize:18,
+    fontWeight:'normal',
+    height:40,
+    paddingTop:30,
+    marginTop:30
+
+  }
 });
